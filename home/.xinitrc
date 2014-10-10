@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-/bin/ln -s ~/.awesome ~/.config/awesome
+[ -L ~/.config/awesome ] || /bin/ln -s ~/.awesome ~/.config/awesome
 
 #/usr/bin/nm-applet &
 
