@@ -2,7 +2,7 @@
 
 [ -L ~/.config/awesome ] || /bin/ln -s ~/.awesome ~/.config/awesome
 
-#/usr/bin/nm-applet &
+/usr/bin/nm-applet &
 
 #Do not do: /usr/bin/gnome-session &
 /usr/bin/unity-settings-daemon --replace &
