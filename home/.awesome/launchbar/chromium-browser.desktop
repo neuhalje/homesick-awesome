@@ -1,0 +1,3 @@
+[Desktop Entry]
+Exec=chromium-browser %c
+Icon=chromium-browser.png
