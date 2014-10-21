@@ -234,7 +234,7 @@ spacer = wibox.widget.textbox(" ")
 local launchbar = require('launchbar')
 launchbar.icon_dirs = { '/usr/share/icons/hicolor/24x24/apps/', '/usr/share/icons/hicolor/20x20/apps' }
 -- local mylaunchbar = launchbar(os.getenv("HOME") .. "/.config/awesome/launchbar/")
-local mylaunchbar = launchbar('/home/jens/.config/awesome/launchbar')
+local mylaunchbar = launchbar('/home/jens/.config/awesome/launchbar.d')
 
 -- Quick launch bar widget }}}
 
