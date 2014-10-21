@@ -36,7 +36,7 @@ local function find_icon(icon_name)
          end
       end
    end
-   error("Launchbar: icon not found " .. icon_name)
+   -- error("Launchbar: icon not found " .. icon_name)
    return nil
 end
  
