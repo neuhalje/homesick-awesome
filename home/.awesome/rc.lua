@@ -232,7 +232,7 @@ spacer = wibox.widget.textbox(" ")
 -- {{{ Quick launch bar widget 
 
 local launchbar = require('launchbar')
-launchbar.icon_dirs = { '/usr/share/icons/hicolor/24x24/apps/', '/usr/share/icons/hicolor/20x20/apps' }
+launchbar.icon_dirs = { '/home/jens/./.local/share/icons/', '/usr/share/icons/hicolor/24x24/apps/', '/usr/share/icons/hicolor/20x20/apps/' }
 -- local mylaunchbar = launchbar(os.getenv("HOME") .. "/.config/awesome/launchbar/")
 local mylaunchbar = launchbar('/home/jens/.config/awesome/launchbar.d')
 
@@ -645,9 +645,17 @@ awful.rules.rules = {
       properties = { tag = tags[1][tag["web"]], floating = false } },
     -- }}}
 
-    -- {{{ Set Intellij
+   -- {{{ Development
+    -- {{{ Intellij
     { rule = { class = "jetbrains-idea" },
       properties = { tag = tags[1][tag["devel"]], floating = true} },
+    -- }}}
+    -- {{{ Genymotion
+    { rule = { class = "Genymotion" },
+      properties = { tag = tags[1][tag["devel2"]], floating = false} },
+    { rule = { class = "Player" },
+      properties = { tag = tags[1][tag["devel2"]], floating = false} },
+    -- }}}
     -- }}}
 
    -- {{{ x2go
