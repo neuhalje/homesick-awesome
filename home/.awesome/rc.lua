@@ -383,18 +383,20 @@ end
 globalkeys = awful.util.table.join(
     -- Take a screenshot
     -- https://github.com/copycat-killer/dots/blob/master/bin/screenshot
-    awful.key({ altkey }, "p", function() os.execute("screenshot") end),
+    -- awful.key({ altkey }, "p", function() os.execute("screenshot") end),
 
-    -- Tag browsing
+    -- {{{ Tag browsing
     awful.key({ modkey }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey }, "Escape", awful.tag.history.restore),
 
     -- Non-empty tag browsing
-    awful.key({ altkey }, "Left", function () lain.util.tag_view_nonempty(-1) end),
-    awful.key({ altkey }, "Right", function () lain.util.tag_view_nonempty(1) end),
+    -- awful.key({ altkey }, "Left", function () lain.util.tag_view_nonempty(-1) end),
+    -- awful.key({ altkey }, "Right", function () lain.util.tag_view_nonempty(1) end),
+    -- }}}
 
-    -- Default client focus
+    -- {{{ Focus
+    --- Default client focus
     awful.key({ altkey }, "k",
         function ()
             awful.client.focus.byidx( 1)
@@ -428,6 +430,8 @@ globalkeys = awful.util.table.join(
             if client.focus then client.focus:raise() end
         end),
 
+   -- }}}
+
     -- Show Menu
     -- awful.key({ modkey }, "w",
     --    function ()
@@ -440,7 +444,7 @@ globalkeys = awful.util.table.join(
         mybottomwibox[mouse.screen].visible = not mybottomwibox[mouse.screen].visible
     end),
 
-    -- Layout manipulation
+    -- {{{ Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end),
     awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end),
@@ -462,14 +466,16 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "space",  function () awful.layout.inc(layouts,  1)  end),
     awful.key({ modkey, "Shift"   }, "space",  function () awful.layout.inc(layouts, -1)  end),
     awful.key({ modkey, "Control" }, "n",      awful.client.restore),
+    -- }}}
 
-    -- Standard program
+    -- {{{ Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r",      awesome.restart),
     awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
 
     -- Dropdown terminal
-    -- awful.key({ modkey,	          }, "z",      function () drop(terminal) end),
+    awful.key({ modkey,	          }, "z",      function () drop(terminal) end),
+    -- }}}
 
     -- Widgets popups
     -- awful.key({ altkey,           }, "c",      function () lain.widgets.calendar:show(7) end),
@@ -561,7 +567,7 @@ clientkeys = awful.util.table.join(
         end)
 )
 
--- Bind all key numbers to tags.
+--  {{{ Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it works on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
 for i = 1, 9 do
@@ -597,6 +603,7 @@ for i = 1, 9 do
                       end
                   end))
 end
+ -- }}}
 
 clientbuttons = awful.util.table.join(
     awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
