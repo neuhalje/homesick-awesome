@@ -1,5 +1,5 @@
 [Desktop Entry]
 Name=IntelliJ
-Path=/home/jens/opt/idea-IU-135.909/
-Exec=/home/jens/opt/idea-IU-135.909/bin/idea.sh
-Icon=/home/jens/opt/idea-IU-135.909/bin/idea.png
+Path=/home/jens/opt/intellij/current/
+Exec=/home/jens/opt/intellij/current/bin/idea.sh
+Icon=/home/jens/opt/intellij/current/bin/idea.png
