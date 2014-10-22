@@ -93,7 +93,7 @@ local layouts = {
 tags = {
    ids = { "term", "web", "devel", "devel2", "other", "virt", "mail", "media" },
    names = { "1.term", "2.web", "3.devel", "4.devel2", "5.other", "6.virt", "7.mail", "8.media" },
-   layout = { layouts[3], awful.layout.suit.max,  layouts[1], awful.layout.suit.fair, awful.layout.suit.tile, awful.layout.suit.max, awful.layout.suit.max, awful.layout.suit.max }
+   layout = { layouts[3], awful.layout.suit.max,  awful.layout.suit.max.fullscreen, awful.layout.suit.fair, awful.layout.suit.tile, awful.layout.suit.max, awful.layout.suit.max, awful.layout.suit.max }
 }
 
 tag = {}
@@ -655,7 +655,7 @@ awful.rules.rules = {
    -- {{{ Development
     -- {{{ Intellij
     { rule = { class = "jetbrains-idea" },
-      properties = { tag = tags[1][tag["devel"]], floating = true} },
+      properties = { tag = tags[1][tag["devel"]], floating = false} },
     -- }}}
     -- {{{ Genymotion
     { rule = { class = "Genymotion" },
