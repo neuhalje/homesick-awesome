@@ -444,6 +444,7 @@ globalkeys = awful.util.table.join(
         mybottomwibox[mouse.screen].visible = not mybottomwibox[mouse.screen].visible
     end),
 
+
     -- {{{ Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end),
@@ -565,6 +566,13 @@ clientkeys = awful.util.table.join(
             c.maximized_horizontal = not c.maximized_horizontal
             c.maximized_vertical   = not c.maximized_vertical
         end)
+--        ,
+--    awful.key({ modkey, "Control" }, "x",
+--        function (c)
+--            c.maximized_horizontal = false
+--            c.maximized_vertical   = false
+--            c:geometry( { width = 534 , height = 144 } )
+--        end)
 )
 
 --  {{{ Bind all key numbers to tags.
@@ -615,8 +623,10 @@ root.keys(globalkeys)
 -- }}}
 
 -- {{{ Rules
+-- http://awesome.naquadah.org/wiki/Understanding_Rules#Window_Properties
+
 awful.rules.rules = {
-    -- All clients will match this rule.
+    -- {{{ All clients will match this rule.
     { rule = { },
       properties = { border_width = beautiful.border_width,
                      border_color = beautiful.border_normal,
@@ -626,20 +636,23 @@ awful.rules.rules = {
                      size_hints_honor = false
                     --  tag = tags[1][tag["other"]]
                      } },
+     -- }}}
 
-    -- GTK+-2-based PIN or pass-phrase entry dialog for GnuPG
+    -- {{{ GTK+-2-based PIN or pass-phrase entry dialog for GnuPG
     { rule = { class = "pinentry" },
       properties = { floating = true } },
+     -- }}}
 
-    -- Gnome password for the ssh private key
+    --  {{{ Gnome password for the ssh private key
     { rule = { class = "Gcr-prompter" },
       properties = {  floating = true 
-              } 
-    },
+              } },
+     -- }}}
 
-    -- terminal
+    -- {{{ terminal
     { rule = { class = "Gnome-terminal" },
       properties = { tag = tags[1][tag["term"]] } },
+     -- }}}
 
     -- {{{ Set browsers
     { rule = { class = "Firefox" },
