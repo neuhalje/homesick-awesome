@@ -653,16 +653,22 @@ awful.rules.rules = {
     -- }}}
 
    -- {{{ Development
-    -- {{{ Intellij
-    { rule = { class = "jetbrains-idea" },
-      properties = { tag = tags[1][tag["devel"]], floating = false} },
-    -- }}}
-    -- {{{ Genymotion
-    { rule = { class = "Genymotion" },
-      properties = { tag = tags[1][tag["devel2"]], floating = false} },
-    { rule = { class = "Player" },
-      properties = { tag = tags[1][tag["devel2"]], floating = false} },
-    -- }}}
+            -- {{{ Intellij
+            { rule = { class = "jetbrains-idea" },
+              properties = { tag = tags[1][tag["devel"]]} },
+
+            -- Popups that should not be maximized    
+            { rule = { class = "jetbrains-idea", instance = "sun-awt-X11-XDialogPeer" },
+              properties = {  floating=true } ,
+           },
+            -- }}}
+ 
+            -- {{{ Genymotion
+            { rule = { class = "Genymotion" },
+              properties = { tag = tags[1][tag["devel2"]], floating = false} },
+            { rule = { class = "Player" },
+              properties = { tag = tags[1][tag["devel2"]], floating = false} },
+            -- }}}
     -- }}}
 
    -- {{{ x2go
