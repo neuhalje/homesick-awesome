@@ -48,10 +48,13 @@ function launchbar.new(filedir)
    local widget = layout.fixed.horizontal()
    local files = io.popen("/bin/ls " .. filedir .. "/*.desktop")
    for f in files.lines(files) do
-      local t = io.open(f):read("*all")
-      table.insert(items, { image = find_icon(getValue(t,"Icon")),
-                            command = getValue(t,"Exec"),
-                            position = tonumber(getValue(t,"Position")) or 255 })
+      local t1 = io.open(f)
+      if t1 then
+         local t = t1:read("*all")
+         table.insert(items, { image = find_icon(getValue(t,"Icon")),
+                               command = getValue(t,"Exec"),
+                               position = tonumber(getValue(t,"Position")) or 255 })
+     end
    end
    table.sort(items, function(a,b) return a.position < b.position end)
    for _, v in ipairs(items) do
