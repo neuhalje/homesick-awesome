@@ -15,6 +15,10 @@ local beautiful = require("beautiful")
 local naughty   = require("naughty")
 local drop      = require("scratchdrop")
 local lain      = require("lain")
+
+-- local brightness = dofile(awful.util.getdir("config") .. "/lib/brightness.lua")
+local brightness = require("lib/brightness")
+
 -- }}}
 
 -- {{{ Error handling
@@ -499,6 +503,9 @@ globalkeys = awful.util.table.join(
             awful.util.spawn("amixer -q -c 1 -D pulse  sset Master toggle")
             volumewidget.update()
         end),
+    awful.key({ }, "XF86MonBrightnessUp",   brightness.increase),
+    awful.key({ }, "XF86MonBrightnessDown", brightness.decrease),
+
 --    awful.key({ altkey, "Control" }, "m",
 --        function ()
 --            awful.util.spawn("amixer -c 1 -q set Master playback 100%")
