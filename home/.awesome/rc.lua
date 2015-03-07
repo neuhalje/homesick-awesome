@@ -221,11 +221,8 @@ spacer = wibox.widget.textbox(" ")
 -- }}}
 
 -- {{{ Quick launch bar widget 
-
 local launchbar = require('lib/launchbar')
--- local mylaunchbar = launchbar(os.getenv("HOME") .. "/.config/awesome/launchbar/")
 local mylaunchbar = launchbar(awful.util.getdir("config") .. '/launchbar.d')
-
 -- Quick launch bar widget }}}
 
 -- {{{ Layout
@@ -823,7 +820,6 @@ for s = 1, screen.count() do screen[s]:connect_signal("arrange", function ()
       end)
 end
 -- }}}
-
 
 -- {{{ Hacks & fixes
 
