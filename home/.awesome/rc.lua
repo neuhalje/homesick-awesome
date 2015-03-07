@@ -542,10 +542,10 @@ globalkeys = awful.util.table.join(
     -- awful.key({ modkey }, "g", function () awful.util.spawn(graphics) end),
 
     -- Prompt
-    awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end),
+    awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end)
 
     -- lock screen
-    awful.key({ "Control", "Shift" }, "l", function () awful.util.spawn("/usr/bin/gnome-screensaver-command -l") end)
+    -- awful.key({ "Control", "Shift" }, "l", function () awful.util.spawn("/usr/bin/gnome-screensaver-command -l") end)
 
 --    awful.key({ modkey }, "x",
 --              function ()
@@ -732,6 +732,9 @@ awful.rules.rules = {
     -- mail
     { rule = { class = "Thunderbird" },
       properties = { tag = tags[1][tag["mail"]]} },
+    { rule = { class = "Evolution" },
+      properties = { tag = tags[1][tag["mail"]]} },
+
 
       -- Verinice
     { rule = { class = "verinice" },
