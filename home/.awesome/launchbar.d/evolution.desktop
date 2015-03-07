@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Evolution
+Exec=evolution %U
+Icon=evolution
+Terminal=false
+Type=Application
+Categories=GNOME;GTK;Office;Email;Calendar;ContactManagement;X-Red-Hat-Base;
+StartupNotify=true
+X-GNOME-UsesNotifications=true
+MimeType=text/calendar;text/x-vcard;text/directory;application/mbox;message/rfc822;x-scheme-handler/mailto;

@@ -1,8 +1,11 @@
 -- Lookup function for icons
--- from: https://raw.githubusercontent.com/cyrobin/awesome-wm/master/lib/icons.lua
-
+-- adapted from: https://raw.githubusercontent.com/cyrobin/awesome-wm/master/lib/icons.lua
 local paths = {
+   "/usr/share/icons/Adwaita",
+   "/usr/share/icons/Bluecurve",
+   "/usr/share/icons/oxygen",
    "/usr/share/icons/gnome-wine",
+   "/usr/share/icons/default",
    "/usr/share/icons/gnome",
    "/usr/share/icons/hicolor",
    "/usr/share/icons/HighContrast",
@@ -19,6 +22,9 @@ local types = {
    'actions',
    'devices',
    'status',
+   'mimetypes',
+   'stock',
+   'categories',
 }
 local formats = {
    ".png",
