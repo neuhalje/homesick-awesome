@@ -16,7 +16,6 @@ local naughty   = require("naughty")
 local drop      = require("scratchdrop")
 local lain      = require("lain")
 
--- local brightness = dofile(awful.util.getdir("config") .. "/lib/brightness.lua")
 local brightness = require("lib/brightness")
 
 -- }}}
@@ -40,20 +39,6 @@ do
         in_error = false
     end)
 end
--- }}}
-
--- {{{ Autostart applications
-function run_once(cmd)
-  findme = cmd
-  firstspace = cmd:find(" ")
-  if firstspace then
-     findme = cmd:sub(0, firstspace-1)
-  end
-  awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
-end
-
-run_once("gnome-terminal")
-run_once("unclutter")
 -- }}}
 
 -- {{{ Variable definitions
@@ -234,12 +219,12 @@ memwidget = lain.widgets.mem({
 spacer = wibox.widget.textbox(" ")
 
 -- }}}
+
 -- {{{ Quick launch bar widget 
 
 local launchbar = require('lib/launchbar')
-local icon_dirs = { '/home/jens/./.local/share/icons/', '/usr/share/icons/hicolor/24x24/apps/', '/usr/share/icons/hicolor/20x20/apps/' }
 -- local mylaunchbar = launchbar(os.getenv("HOME") .. "/.config/awesome/launchbar/")
-local mylaunchbar = launchbar(awful.util.getdir("config") .. '/launchbar.d', icon_dirs)
+local mylaunchbar = launchbar(awful.util.getdir("config") .. '/launchbar.d')
 
 -- Quick launch bar widget }}}
 
@@ -846,4 +831,20 @@ end
 local scriptdir= os.getenv("HOME") .. "/.config/awesome/bin/"
 -- os.execute(scriptdir .. "/make_intellij_work_with_awesome.sh")
 
+-- }}}
+
+-- {{{ Autostart applications
+function run_once(cmd)
+  findme = cmd
+  firstspace = cmd:find(" ")
+  if firstspace then
+     findme = cmd:sub(0, firstspace-1)
+  end
+  awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
+end
+
+local autostart = require('lib/autostart')
+autostart.run(awful.util.getdir("config") .. '/autostart.d')
+
+awful.util.spawn_with_shell('nm-applet')
 -- }}}
