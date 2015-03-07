@@ -1,62 +1,20 @@
--- Quick launchbar widget for Awesome WM
--- http://awesome.naquadah.org/wiki/Quick_launch_bar_widget/3.5
--- Put into your awesome/ folder and add the following to rc.lua:
---   local launchbar = require('launchbar')
---   local mylb = launchbar("/path/to/directory/with/shortcuts")
--- Then add mylb to the wibox.
--- https://gist.github.com/alexander-yakushev/6343832
- 
 local layout = require("wibox.layout")
 local util = require("awful.util")
 local launcher = require("awful.widget.launcher")
  
+
 local launchbar = {}
- 
-local function getValue(t, key)
-   local _, _, res = string.find(t, key .. " *= *([^%c]+)%c")
-   return res
-end
- 
-local function find_icon(icon_name)
-   if string.sub(icon_name, 1, 1) == '/' then
-      if util.file_readable(icon_name) then
-         return icon_name
-      else
-         return nil
-      end
-   end
- 
-   if launchbar.icon_dirs then
-      for _, v in ipairs(launchbar.icon_dirs) do
-         if util.file_readable(v .. "/" .. icon_name) then
-            return v .. '/' .. icon_name
-         end
-         if util.file_readable(v .. "/" .. icon_name .. ".png" ) then
-            return v .. '/' .. icon_name .. ".png"
-         end
-      end
-   end
-   -- error("Launchbar: icon not found " .. icon_name)
-   return nil
-end
- 
-function launchbar.new(filedir)
+
+local desktop_entries        =require("lib/desktop_entries")
+ -- package.loaded["lib/desktop_entries"]
+
+function launchbar.new(filedir, icondirs)
    if not filedir then
       error("Launchbar: filedir was not specified")
    end
-   local items = {}
+   local items = desktop_entries.find_apps(filedir,icondirs)
    local widget = layout.fixed.horizontal()
-   local files = io.popen("/bin/ls " .. filedir .. "/*.desktop")
-   for f in files.lines(files) do
-      local t1 = io.open(f)
-      if t1 then
-         local t = t1:read("*all")
-         table.insert(items, { image = find_icon(getValue(t,"Icon")),
-                               command = getValue(t,"Exec"),
-                               position = tonumber(getValue(t,"Position")) or 255 })
-     end
-   end
-   table.sort(items, function(a,b) return a.position < b.position end)
+
    for _, v in ipairs(items) do
       if v.image then
          widget:add(launcher(v))

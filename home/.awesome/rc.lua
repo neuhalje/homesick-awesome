@@ -237,9 +237,9 @@ spacer = wibox.widget.textbox(" ")
 -- {{{ Quick launch bar widget 
 
 local launchbar = require('lib/launchbar')
-launchbar.icon_dirs = { '/home/jens/./.local/share/icons/', '/usr/share/icons/hicolor/24x24/apps/', '/usr/share/icons/hicolor/20x20/apps/' }
+local icon_dirs = { '/home/jens/./.local/share/icons/', '/usr/share/icons/hicolor/24x24/apps/', '/usr/share/icons/hicolor/20x20/apps/' }
 -- local mylaunchbar = launchbar(os.getenv("HOME") .. "/.config/awesome/launchbar/")
-local mylaunchbar = launchbar(awful.util.getdir("config") .. '/launchbar.d')
+local mylaunchbar = launchbar(awful.util.getdir("config") .. '/launchbar.d', icon_dirs)
 
 -- Quick launch bar widget }}}
 

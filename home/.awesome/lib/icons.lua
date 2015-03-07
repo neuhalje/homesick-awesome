@@ -30,10 +30,10 @@ local type   = type
 local pairs  = pairs
 local awful  = require("awful")
 
-module("lib/icons")
+local mymodule = {}
 
 -- Lookup for an icon. Return full path.
-function lookup(arg)
+function mymodule.lookup(arg)
    local inames = assert(arg.name)
    local isizes = arg.size or sizes
    local itypes = arg.type or types
@@ -62,3 +62,6 @@ function lookup(arg)
       end
    end
 end
+
+
+return mymodule
