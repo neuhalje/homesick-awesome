@@ -31,7 +31,7 @@ function mymodule.find_apps(filedir, icon_dirs)
    ---- image, command, position
    -- sorted by position
 
-   local default_icon = assert(icons.lookup({name = "abrt"}))
+   local default_icon = assert(icons.lookup({name = "start-here"}))
 
    if not filedir then
       error("find_apps: filedir was not specified")

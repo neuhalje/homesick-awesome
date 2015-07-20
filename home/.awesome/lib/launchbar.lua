@@ -15,10 +15,11 @@ function launchbar.new(filedir)
    end
    local items = desktop_entries.find_apps(filedir)
    local widget = layout.fixed.horizontal()
-   local default_icon = assert(icons.lookup({name = "abrt"}))
+   local default_icon = icons.lookup({name = "start-here"})
 
    for _, v in ipairs(items) do
       if not v.image then
+        assert(default_icon)
         v.image = default_icon
       end
       local l = launcher(v)
