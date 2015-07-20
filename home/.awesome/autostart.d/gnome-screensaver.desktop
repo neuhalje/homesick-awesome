@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Gnome Screensaver
+Exec=/usr/bin/gnome-screensaver
+Icon=evolution
+Terminal=false
+Type=Application
+Categories=GNOME;
+StartupNotify=true
+X-GNOME-UsesNotifications=true
