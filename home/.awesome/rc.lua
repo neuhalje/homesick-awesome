@@ -524,10 +524,10 @@ globalkeys = awful.util.table.join(
     -- awful.key({ modkey }, "g", function () awful.util.spawn(graphics) end),
 
     -- Prompt
-    awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end)
+    awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end),
 
     -- lock screen
-    -- awful.key({ "Control", "Shift" }, "l", function () awful.util.spawn("/usr/bin/gnome-screensaver-command -l") end)
+    awful.key({ "Control", "Shift" }, "l", function () awful.util.spawn("/usr/bin/xdg-screensaver lock") end)
 
 --    awful.key({ modkey }, "x",
 --              function ()
@@ -823,8 +823,8 @@ end
 
 -- {{{ Hacks & fixes
 
--- Intellij does not draw the windows
 local scriptdir= os.getenv("HOME") .. "/.config/awesome/bin/"
+-- Intellij does not draw the windows
 -- os.execute(scriptdir .. "/make_intellij_work_with_awesome.sh")
 
 -- }}}
