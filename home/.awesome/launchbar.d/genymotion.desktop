@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Name=Genymotion for personal use
+Icon=genymotion.png
+Path=/home/jens/opt/genymotion
+Exec=/home/jens/opt/genymotion/genymotion
+StartupNotify=false
+StartupWMClass=Genymotion
+OnlyShowIn=Unity;
+X-UnityGenerated=true
