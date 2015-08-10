@@ -2,8 +2,8 @@
 Encoding=UTF-8
 Version=1.0
 Type=Application
-Name=Genymotion for personal use
-Icon=genymotion.png
+Name=Genymotion
+Icon=/home/jens/opt/genymotion/icons/icon.png
 Path=/home/jens/opt/genymotion
 Exec=/home/jens/opt/genymotion/genymotion
 StartupNotify=false
