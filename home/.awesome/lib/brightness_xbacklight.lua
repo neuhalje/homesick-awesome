@@ -10,7 +10,7 @@ local os           = os
 local mymodule = {}
 
 local function test_xbacklight()
-   local works = os.execute("xbacklight -get")
+   local works = pcall(os.execute("xbacklight -get"))
    return works
 end
 
