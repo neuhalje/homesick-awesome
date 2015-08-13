@@ -41,6 +41,12 @@ do
 end
 -- }}}
 
+-- {{{ Environment Variables
+-- needs the lua-posix package
+local posix = require("posix")
+posix.setenv("ANDROID_SDK", "~/opt/android-sdk-linux/")
+-- }}}
+
 -- {{{ Variable definitions
 -- localization
 os.setlocale(os.getenv("LANG"))
